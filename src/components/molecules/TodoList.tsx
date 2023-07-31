@@ -1,5 +1,6 @@
 import React from "react";
 import { Todo } from "../../screens/Main";
+import { TrashButton } from "../atoms/TrashButton";
 
 type props = {
   todos: Todo[];
@@ -20,7 +21,7 @@ export const TodoList: React.FC<props> = ({ todos, deleteTodo }) => {
         >
           <div>{todo.content}</div>
           <div className="cursor-pointer" onClick={() => submitDelete(todo.id)}>
-            delete
+            <TrashButton />
           </div>
         </div>
       ))}
