@@ -222,13 +222,13 @@ export const AuthenticationForm = () => {
           </div>
           <div
             className={
-              "text-blue-500 mt-12 border-b border-blue-500 w-24 cursor-pointer"
+              "text-blue-500 mt-12 border-b border-blue-500 w-fit cursor-pointer"
             }
             onClick={() => toggleLoggedState()}
           >
             {isLink()}
           </div>
-          <div className="text-blue-500 mt-6 border-b border-blue-500 w-24 cursor-pointer">
+          <div className="text-blue-500 mt-6 border-b border-blue-500 w-fit cursor-pointer">
             <Link to={`/`}>Todoリストへ</Link>
           </div>
         </div>
