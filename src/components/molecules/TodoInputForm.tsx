@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import { SmallButton } from "../atoms/SmallButton";
 
-export const TodoInputForm = () => {
+export const TodoInputForm = ({ addTodo }: { addTodo: Function }) => {
   const [text, setText] = useState<string>("");
+
+  const submitTodo: Function = () => {
+    addTodo(text);
+    setText("");
+  };
 
   return (
     <>
@@ -13,7 +18,7 @@ export const TodoInputForm = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <div className="m-2">
+        <div className="m-2" onClick={() => submitTodo()}>
           <SmallButton name={"Add"} />
         </div>
       </div>
