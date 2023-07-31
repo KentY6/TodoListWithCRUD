@@ -168,9 +168,15 @@ export const AuthenticationForm = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full">
         <Title title={loggedState} />
-        <div className={loggedState === "ログアウト" ? "hidden" : "m-2 w-1/4"}>
+        <div
+          className={
+            loggedState === "ログアウト"
+              ? "hidden"
+              : "m-2 w-1/4 max-sm:w-3/4 max-lg:w-1/2"
+          }
+        >
           <div className="m-1 text-sm">・メールアドレス</div>
           <input
             className="border p-1 w-full border-gray-400 rounded"
@@ -179,7 +185,13 @@ export const AuthenticationForm = () => {
             onChange={(e) => setMailAddress(e.target.value)}
           />
         </div>
-        <div className={loggedState === "ログアウト" ? "hidden" : "m-2 w-1/4"}>
+        <div
+          className={
+            loggedState === "ログアウト"
+              ? "hidden"
+              : "m-2 w-1/4 max-sm:w-3/4 max-lg:w-1/2"
+          }
+        >
           <div className="m-1 text-sm">・パスワード</div>
           <input
             className="border p-1 w-full border-gray-400 rounded"
@@ -197,12 +209,14 @@ export const AuthenticationForm = () => {
         </div>
         <div
           className={
-            message === "" ? "hidden" : "m-4 text-sm w-1/4 text-center"
+            message === ""
+              ? "hidden"
+              : "m-4 text-sm w-1/4 max-sm:w-3/4 max-lg:w-1/2 text-center"
           }
         >
           {message}
         </div>
-        <div className="w-1/4">
+        <div className="w-1/4 max-sm:w-3/4 max-lg:w-1/2">
           <div className="mt-8" onClick={() => authentication()}>
             <SmallButton name={loggedState} />
           </div>
