@@ -119,7 +119,7 @@ export const AuthenticationForm = () => {
       } catch (err) {
         console.error(err);
         setMessage(
-          `ログインに失敗しました。メールアドレスかパスワードが間違っている可能性があります。`
+          `ログインに失敗しました。\nメールアドレスかパスワードが\n間違っている可能性があります。`
         );
       }
     }
@@ -214,7 +214,7 @@ export const AuthenticationForm = () => {
               : "m-4 text-sm w-1/4 max-sm:w-3/4 max-lg:w-1/2 text-center"
           }
         >
-          {message}
+          <pre>{message}</pre>
         </div>
         <div className="w-1/4 max-sm:w-3/4 max-lg:w-1/2">
           <div className="mt-8" onClick={() => authentication()}>
