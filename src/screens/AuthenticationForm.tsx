@@ -195,7 +195,11 @@ export const AuthenticationForm = () => {
         >
           {errorMessage}
         </div>
-        <div className={message === "" ? "hidden" : "m-4 text-sm w-1/4"}>
+        <div
+          className={
+            message === "" ? "hidden" : "m-4 text-sm w-1/4 text-center"
+          }
+        >
           {message}
         </div>
         <div className="w-1/4">
