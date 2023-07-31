@@ -86,15 +86,14 @@ export const Main = () => {
     <>
       <div className="flex flex-col items-center justify-center">
         <Title title={"TodoList"} />
+        <div className="text-blue-500 m-5 border-b border-blue-500">
+          <Link to={`/login/`}>ログインフォームへ</Link>
+        </div>
         <TodoInputForm addTodo={addTodo} />
         <div onClick={() => saveTodosData()}>
           <MediumButton name={"SAVE"} />
         </div>
         <div className="m-2">{message}</div>
-        <div className="text-blue-500 m-5 border-b border-blue-500">
-          <Link to={`/login/`}>ログインフォームへ</Link>
-        </div>
-
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </div>
     </>
