@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Title } from "../components/atoms/Title";
 import { TodoInputForm } from "../components/molecules/TodoInputForm";
 import { TodoList } from "../components/molecules/TodoList";
@@ -36,7 +36,7 @@ export const Main = () => {
 
   const user: User | null = auth.currentUser;
 
-  // Todoを保存する機能
+  // TodoをDBに保存する機能
   const saveTodosData: Function = async () => {
     if (user) {
       const todosDocRef = doc(db, `users/${user.uid}`);
@@ -50,8 +50,37 @@ export const Main = () => {
         console.error(error);
         setMessage("保存に失敗しました");
       }
+    } else {
+      setMessage("ログインされていません");
     }
   };
+
+  // TodoをDBから読み込む機能
+  const getTodos: Function = async () => {
+    if (user) {
+      const userDataRef = doc(db, `users/${user.uid}`);
+      try {
+        setMessage("読み込み中");
+        const userTodosDocSnap = await getDoc(userDataRef);
+        if (userTodosDocSnap.exists()) {
+          const getTodosData = userTodosDocSnap.data().todos;
+          if (getTodosData.length > 0) {
+            setTodos(getTodosData);
+          }
+          setMessage("読み込みに成功しました");
+        } else {
+          setMessage("");
+          return;
+        }
+      } catch (error) {
+        console.error(error);
+        setMessage("読み込みに失敗しました");
+      }
+    }
+  };
+  useEffect(() => {
+    getTodos();
+  }, []);
 
   return (
     <>
