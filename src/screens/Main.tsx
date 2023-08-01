@@ -93,7 +93,7 @@ export const Main = () => {
         <div onClick={() => saveTodosData()}>
           <MediumButton name={"SAVE"} />
         </div>
-        <div className="m-2">{message}</div>
+        <div className="m-2 max-sm:m-4">{message}</div>
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </div>
     </>
